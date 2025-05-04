@@ -10,6 +10,7 @@ import {
 import {RadioGroup, RadioGroupItem} from '~/components/ui/radio-group'
 import {Label} from '~/components/ui/label';
 import {Button} from '~/components/ui/button';
+import Loader from "~/components/loader/loader";
 import useQuestions from '~/store/useQuestions'
 import useRAnswers from '~/store/useRAnswers'
 import type { QuestionsType} from '~/store/useQuestions.ts'
@@ -62,7 +63,7 @@ export default function MockTest(){
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
   if (error) {
     return <div className="text-red-500 w-full text-center h-full flex align-center justify-center">
@@ -72,10 +73,10 @@ export default function MockTest(){
     </div>;
   }
   return (
-    <main>
+    <main className="background m-0 px-0 py-4">
       <section>
         <h1 
-        className="my-4 text-4xl mx-auto text-center font-bold text-gray-800">
+        className="mb-4 text-4xl mx-auto text-center font-bold text-gray-800">
         Subject: {Subject}</h1>
         <form onSubmit={HandleSubmit} className="flex flex-col items-center">
           {questions.map((question, index) => (

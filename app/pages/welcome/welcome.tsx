@@ -12,7 +12,6 @@ export function Welcome() {
         {
           pathname: '/mocktest',
           search: '?subject=' + selectedSubject,
-          state: { subject: selectedSubject }
         }
       );
     } else {
@@ -20,7 +19,7 @@ export function Welcome() {
     }
   };
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+    <main className="background min-h-screen flex items-center justify-center p-4 bg-gray-100">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
         <div id="welcome-container" className="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-3xl">
           <div className="flex justify-center items-center mb-6">
@@ -53,7 +52,7 @@ export function Welcome() {
           <div className="flex justify-center">
             <Button id="instructions-button" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-md transition duration-150 ease-in-out"
               onClick={handleInstructionsButtonClick}>
-              Continue to Instructions
+              Continue to Test
             </Button>
           </div>
         </div>

@@ -46,7 +46,7 @@ export function TestResultsPage() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+    <div className="background min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <h1 className="text-2xl font-bold text-center mb-4">Test Results</h1>
         <Separator className="mb-4" />
@@ -87,7 +87,7 @@ export function TestResultsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-500">{question.description}</p>
-                <Badge variant="outline" className="mt-2">Correct Answer: {question.answer}</Badge>
+                <Badge variant="outline" className="mt-2 text-wrap">Correct Answer: {question.answer}</Badge>
               </CardContent>
             </Card>
           )
