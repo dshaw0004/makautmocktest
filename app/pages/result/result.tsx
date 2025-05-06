@@ -87,7 +87,9 @@ export function TestResultsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-500">{question.description}</p>
-                <Badge variant="outline" className="mt-2 text-wrap">Correct Answer: {question.answer}</Badge>
+                <p className="mt-2 text-wrap border-solid border-black-400 border-2 rounded-md p-1 text-sm">
+                Correct Answer: {question.answer}
+                </p>
               </CardContent>
             </Card>
           )
