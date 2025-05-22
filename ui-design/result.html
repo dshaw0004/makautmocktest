@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700"
+    />
+
+    <title>Result</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden"
+      style='font-family: "Spline Sans", "Noto Sans", sans-serif;'
+    >
+      <div>
+        <div class="flex items-center bg-white p-4 pb-2 justify-between">
+          <div class="text-[#161212] flex size-12 shrink-0 items-center" data-icon="X" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-[#161212] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Results</h2>
+        </div>
+        <h3 class="text-[#161212] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Test Details</h3>
+        <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+          <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e3dddd] py-5">
+            <p class="text-[#816a6a] text-sm font-normal leading-normal">Subject</p>
+            <p class="text-[#161212] text-sm font-normal leading-normal">Mathematics</p>
+          </div>
+          <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e3dddd] py-5">
+            <p class="text-[#816a6a] text-sm font-normal leading-normal">Number of Questions</p>
+            <p class="text-[#161212] text-sm font-normal leading-normal">20</p>
+          </div>
+        </div>
+        <h3 class="text-[#161212] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Performance Summary</h3>
+        <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+          <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e3dddd] py-5">
+            <p class="text-[#816a6a] text-sm font-normal leading-normal">Time Taken</p>
+            <p class="text-[#161212] text-sm font-normal leading-normal">20 min</p>
+          </div>
+          <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e3dddd] py-5">
+            <p class="text-[#816a6a] text-sm font-normal leading-normal">Questions Attempted</p>
+            <p class="text-[#161212] text-sm font-normal leading-normal">18</p>
+          </div>
+          <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e3dddd] py-5">
+            <p class="text-[#816a6a] text-sm font-normal leading-normal">Cheating Attempts</p>
+            <p class="text-[#161212] text-sm font-normal leading-normal">0</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 p-4">
+          <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4f1f1]">
+            <p class="text-[#161212] text-base font-medium leading-normal">Score</p>
+            <p class="text-[#161212] tracking-light text-2xl font-bold leading-tight">90%</p>
+          </div>
+          <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4f1f1]">
+            <p class="text-[#161212] text-base font-medium leading-normal">Correct Answers</p>
+            <p class="text-[#161212] tracking-light text-2xl font-bold leading-tight">18/20</p>
+          </div>
+        </div>
+        <div class="flex px-4 py-3">
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 flex-1 bg-[#e5b2b2] text-[#161212] text-sm font-bold leading-normal tracking-[0.015em]"
+          >
+            <a class="truncate" href="/tests.html">Take Another Test</a>
+          </button>
+        </div>
+        <h3 class="text-[#161212] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Correct Answers</h3>
+        <div class="p-4">
+          <div class="flex items-stretch justify-between gap-4 rounded-xl">
+            <div class="flex flex-[2_2_0px] flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <p class="text-[#816a6a] text-sm font-normal leading-normal">Question 1</p>
+                <p class="text-[#161212] text-base font-bold leading-tight">What is 2+2?</p>
+                <p class="text-[#816a6a] text-sm font-normal leading-normal">Your Answer: 4 (Correct) Explanation: Basic addition.</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#f4f1f1] text-[#161212] text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">Correct Answer: 4</span>
+              </button>
+            </div>
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmSplyXwRvBEPFYVYdbFHsKMInb7XyDCto5vzSc4bunlCxG3Sl6-CEBZZFhm-Jgr3jk2PWsUdNWk7i3aL9z5fAKzVrOOUQtIT9opzwY6Fu9XVx5SpsrwVJCRU2RvzK3Y-3yye4QBeLwlc9DjsVW7TVdCZlyInHCfLiG-59WOZCRdfbnUjGCdi1EgAQLcseiRHzKoQfyv4tmvTjetmjjEraL0pQw4OnHd5TdJwWsL6YeebWxmkcwprww8DnjRHqT_om772W_wY_q1w");'
+            ></div>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="flex items-stretch justify-between gap-4 rounded-xl">
+            <div class="flex flex-[2_2_0px] flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <p class="text-[#816a6a] text-sm font-normal leading-normal">Question 2</p>
+                <p class="text-[#161212] text-base font-bold leading-tight">Solve for x: 3x = 9</p>
+                <p class="text-[#816a6a] text-sm font-normal leading-normal">Your Answer: 2 (Incorrect) Explanation: Divide both sides by 3.</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#f4f1f1] text-[#161212] text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">Correct Answer: 3</span>
+              </button>
+            </div>
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj8OwduwLguaquyDJJW4xrSwcSX4P8TuLfweHuY4lf2xa4x1PdNAD_EMUxsD1iUCHSGZZj7XewEe_S6wNE6O1Xt2ui02qRmn-xdMlv4LpPPd2vDbJoZg-N1_7AKYyO83MQvC4OYI4kgM4JM5HJQkeio8_7rpgDIpOXczNFelcvGVq38PIE6xm223DR5hVl7j7NNgCtneBkVTVbvRk_Y1ccQSNUerwHcynUKCSqA-9Pgx_sDJGl07r0nI3WuzJuFmBTKva3ieQGafg");'
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex px-4 py-3">
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 flex-1 bg-[#f4f1f1] text-[#161212] text-sm font-bold leading-normal tracking-[0.015em]"
+          >
+            <span class="truncate">Print Correct Answers</span>
+          </button>
+        </div>
+        <div class="h-5 bg-white"></div>
+      </div>
+    </div>
+  </body>
+</html>
