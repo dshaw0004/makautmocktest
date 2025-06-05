@@ -5,5 +5,6 @@ export default [
   route("mocktest", "routes/mocktest.tsx"),
   route("instructions", "routes/instructions.tsx"),
   route("result", "routes/result.tsx"),
+  route("get-started", "routes/getstarted.tsx"),
 
 ] satisfies RouteConfig;
