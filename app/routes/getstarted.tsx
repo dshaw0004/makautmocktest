@@ -3,8 +3,8 @@ import GetStarted from "../pages/getstarted/index";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    {title: "MAKAUT Mock Test"},
-    {name: "makaut mock test", content: "MAKAUT CA4 Mock Test"},
+    {title: "AI Exam Prep"},
+    {name: "AI Exam Preparation", content: "Prepare for your exam with the help of AI."},
   ];
 }
 
