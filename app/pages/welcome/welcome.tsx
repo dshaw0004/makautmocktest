@@ -89,3 +89,6 @@ export function Welcome() {
     </main>
   );
 }
+
+
+// planning to add [SmoothUI](https://www.smoothui.dev/) for animated Shadcn components.

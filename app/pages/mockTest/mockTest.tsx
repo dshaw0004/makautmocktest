@@ -41,7 +41,7 @@ export default function MockTest() {
         setLoading(true);
         setSubjects(SubjectName);
 
-        const response = await axios.post('https://dapi-0rv5.onrender.com/v1/aiexam/get-prev-questions', {
+        const response = await axios.post('https://dapi-0rv5.onrender.com/v1/aiexam/get-questions', {
           subject_code: SubjectCode,
           university: 'makaut',
           user_id: ''
@@ -51,7 +51,7 @@ export default function MockTest() {
         if (response.status !== 200) {
           throw new Error("Failed to fetch questions");
         }
-        setQuestions(response.data[0] as QuestionsType);
+        setQuestions(response.data as QuestionsType);
       } catch (error) {
         setError(error as Error);
       } finally {
