@@ -8,16 +8,10 @@ import { Separator } from "~/components/ui/separator"
 import useSubjectStore from "~/store/useSubject"
 import useRAnswers from "~/store/useRAnswers"
 import useQuestions from "~/store/useQuestions"
-import type QuestionsType from "~/store/useQuestions"
+import type {QuestionsType, QuestionType} from "~/store/useQuestions"
 import {Button} from "~/components/ui/button"
 
-type QuestionsType = {
-  question: string;
-  options: string[];
-  answer: string;
-  description: string;
-  hardness: 'easy' | 'medium' | 'hard';
-}
+
 
 export function TestResultsPage() {
   const navigate = useNavigate()
@@ -29,9 +23,9 @@ export function TestResultsPage() {
 
 
   function calculateScore(selectedAnswers: {[key: string]: string}): number {
-    console.log(selectedAnswers);
+    // console.log(selectedAnswers);
     let score = 0;
-    questions.forEach((question: QuestionsType, index: number) => {
+    ('question' in questions) && questions.question.forEach((question: QuestionType, index: number) => {
       let questionKey: string = `question-${index}`
       if (selectedAnswers[questionKey] === question.answer) {
         score += 1;
@@ -75,7 +69,7 @@ export function TestResultsPage() {
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-8">
         <h1 className="text-2xl font-bold text-center mb-4">Answers</h1>
         <Separator className="mb-4" />
-        {questions.map((question: QuestionsType, index: number) => {
+        {('question' in questions) && questions.question.map((question: QuestionType, index: number) => {
           let questionKey: string = `question-${index}`
           return (
             <Card key={index} className="my-4">
