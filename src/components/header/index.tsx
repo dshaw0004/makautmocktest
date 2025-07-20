@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/components/header/index.tsx
 import { Link } from "react-router";
 import { useLocation } from "react-router";
 
@@ -22,32 +21,6 @@ export default function Header() {
       name: "Contact",
       path: "contact",
     },
-=======
-import React from 'react'
-import {Link} from 'react-router'
-import {useLocation} from 'react-router'
-
-export default function Header() {
-  const location = useLocation();
-  const currentPage = location.pathname || 'home';
-  const availablePages = [
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'Features',
-      path: '/#features',
-    },
-    {
-      name: 'Pricing',
-      path: '/pricing',
-    },
-    {
-      name: 'Contact',
-      path: 'contact',
-    }
->>>>>>> main:app/components/header/index.tsx
   ];
   return (
     <header>
@@ -59,18 +32,13 @@ export default function Header() {
                 <div className="w-10 h-10 bg-gradient-to-r from-[#ff5500] to-[#ff9944] rounded-lg flex items-center justify-center">
                   <i className="fas fa-brain text-white text-lg">AEP</i>
                 </div>
-<<<<<<< HEAD:src/components/header/index.tsx
                 <span className="ml-3 text-xl font-bold text-gray-800">
                   AI Exam Prep
                 </span>
-=======
-                <span className="ml-3 text-xl font-bold text-gray-800">AI Exam Prep</span>
->>>>>>> main:app/components/header/index.tsx
               </div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-<<<<<<< HEAD:src/components/header/index.tsx
                 {availablePages.map((page) => (
                   <a
                     key={page.name}
@@ -80,19 +48,6 @@ export default function Header() {
                     {page.name}
                   </a>
                 ))}
-=======
-                {
-                  availablePages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.path}
-                      className={`text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPage === page.path ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
-                    >
-                      {page.name}
-                    </a>
-                  ))
-                }
->>>>>>> main:app/components/header/index.tsx
                 <button className="bg-[#ff9944] hover:bg-[#ff7722] text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
                   <Link to={"/home"}>Sign In</Link>
                 </button>
@@ -107,9 +62,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-<<<<<<< HEAD:src/components/header/index.tsx
   );
-=======
-  )
->>>>>>> main:app/components/header/index.tsx
 }
