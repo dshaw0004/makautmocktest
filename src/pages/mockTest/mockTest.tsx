@@ -8,14 +8,12 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/loader/loader";
 import Markdown from "react-markdown";
-// import MarkdownRenderer from "shadcn-markdown";
 // for error page
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle, ChevronLeft, ChevronRight, Flag } from "lucide-react";
 // custom hooks
 import useQuestions from "@/store/useQuestions";
 import useRAnswers from "@/store/useRAnswers";
-import useSubjects from "@/store/useSubject";
 
 // Type imports
 import type { QuestionAPIResponse } from "@/types/question";
@@ -35,18 +33,32 @@ export default function MockTest() {
   const questions = useQuestions((state) => state.questions);
   const setQuestions = useQuestions((state) => state.setQuestions);
   const setAnswers = useRAnswers((state) => state.setAnswers);
-  const setSubjects = useSubjects((state) => state.setSubject);
+  // const setSubjects = useSubjects((state) => state.setSubject);
 
   const { register, handleSubmit, watch, setValue } = useForm<FormData>();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error>();
   const [questionNumber, setQuestionNumber] = useState<number>(0);
 
+  const showNotification = (message: string) => {
+    if ("Notification" in window) {
+      if (Notification.permission === "granted") {
+        new Notification("Makaut Mock Test", { body: message });
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            new Notification("Makaut Mock Test", { body: message });
+          }
+        });
+      }
+    }
+  };
+
   useEffect(() => {
     (async function () {
       try {
         setLoading(true);
-        setSubjects(SubjectName);
+        // setSubjects(SubjectName);
 
         const response = await axios.post(
           "https://dapi-0rv5.onrender.com/v1/aiexam/get-questions",
@@ -64,13 +76,14 @@ export default function MockTest() {
         }
         setQuestions(response.data as QuestionAPIResponse);
         // setQuestions(sampleQuestionPaper);
+        showNotification("Hey! your questions are ready.");
       } catch (error) {
         setError(error as Error);
       } finally {
         setLoading(false);
       }
     })();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function goToNextQuestion() {
     setQuestionNumber((prev) => prev + 1);
@@ -155,7 +168,7 @@ export default function MockTest() {
           >
             {currentQuestion && (
               <section className="space-y-6 mx-auto my-4">
-                <h2 className="text-1xl lg:text-2xl font-semibold tracking-tight leading-snug">
+                <h2 className="text-1xl lg:text-2xl font-semibold tracking-tight leading-snug text-slate-900">
                   <Markdown>{currentQuestion.question}</Markdown>
                 </h2>
                 <div>
@@ -164,13 +177,13 @@ export default function MockTest() {
                     onValueChange={(value) =>
                       setValue(currentQuestionKey, value)
                     }
-                    className="space-y-2 grid gap-4 sm:grid-cols-2"
+                    className="my-2 grid gap-4 sm:grid-cols-2"
                   >
                     {currentQuestion.options.map((option, idx) => (
                       <Label
                         htmlFor={`question${questionNumber}option${idx}`}
                         key={option}
-                        className="font-medium text-slate-800 space-x-2  flex items-start gap-3 w-full rounded-lg border border-slate-200 bg-white/80 p-4 text-left hover:border-cyan-400 transition focus:outline-none"
+                        className="font-medium text-slate-800 space-x-2 flex items-center gap-3 w-full rounded-lg border border-slate-200 bg-white/80 px-4 py-5 text-left hover:border-cyan-400 transition focus:outline-none"
                       >
                         <RadioGroupItem
                           value={option}

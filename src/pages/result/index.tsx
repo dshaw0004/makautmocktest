@@ -1,6 +1,6 @@
 import { CheckCircle, Printer, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import useSubjectStore from "@/store/useSubject";
+import { useSubjects } from "@/store/useSubject";
 import useRAnswers from "@/store/useRAnswers";
 import useQuestions from "@/store/useQuestions";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Result() {
   const navigate = useNavigate();
-  const subject = useSubjectStore((state) => state.subject);
+  const { currentSubject } = useSubjects();
   const userAnswers = useRAnswers((state) => state.answers);
   const questions = useQuestions((state) => state.questions);
 
@@ -62,7 +62,7 @@ export default function Result() {
             Your Performance
           </h1>
           <h2 className="text-lg font-medium text-slate-600">
-            Subject: {subject}
+            Subject: {currentSubject.subject}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10 items-center">
