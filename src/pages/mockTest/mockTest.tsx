@@ -1,22 +1,22 @@
-import { Link, useLocation, useNavigate } from "react-router";
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import {Link, useLocation, useNavigate} from "react-router";
+import {useState, useEffect} from "react";
+import {useForm} from "react-hook-form";
 import axios from "axios";
 
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
+import {Label} from "@/components/ui/label";
+import {Button} from "@/components/ui/button";
 import Loader from "@/components/loader/loader";
 import Markdown from "react-markdown";
 // for error page
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle, ChevronLeft, ChevronRight, Flag } from "lucide-react";
+import {Alert, AlertTitle, AlertDescription} from "@/components/ui/alert";
+import {AlertCircle, ChevronLeft, ChevronRight, Flag} from "lucide-react";
 // custom hooks
 import useQuestions from "@/store/useQuestions";
 import useRAnswers from "@/store/useRAnswers";
 
 // Type imports
-import type { QuestionAPIResponse } from "@/types/question";
+import type {QuestionAPIResponse} from "@/types/question";
 
 // import { sampleQuestionPaper } from "./sample";
 
@@ -35,7 +35,7 @@ export default function MockTest() {
   const setAnswers = useRAnswers((state) => state.setAnswers);
   // const setSubjects = useSubjects((state) => state.setSubject);
 
-  const { register, handleSubmit, watch, setValue } = useForm<FormData>();
+  const {register, handleSubmit, watch, setValue} = useForm<FormData>();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error>();
   const [questionNumber, setQuestionNumber] = useState<number>(0);
@@ -43,11 +43,11 @@ export default function MockTest() {
   const showNotification = (message: string) => {
     if ("Notification" in window) {
       if (Notification.permission === "granted") {
-        new Notification("Makaut Mock Test", { body: message });
+        new Notification("Makaut Mock Test", {body: message});
       } else if (Notification.permission !== "denied") {
         Notification.requestPermission().then((permission) => {
           if (permission === "granted") {
-            new Notification("Makaut Mock Test", { body: message });
+            new Notification("Makaut Mock Test", {body: message});
           }
         });
       }
@@ -68,7 +68,7 @@ export default function MockTest() {
             user_id: "",
           },
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
           },
         );
         if (response.status !== 200) {
@@ -96,7 +96,7 @@ export default function MockTest() {
   // All answers are automatically preserved
   function onSubmit(data: FormData) {
     setAnswers(data); // Has ALL answers from all questions
-    navigate({ pathname: "/new-result" });
+    navigate({pathname: "/result"});
   }
   if (loading) {
     return <Loader />;
@@ -157,7 +157,7 @@ export default function MockTest() {
                 <div
                   id="bar"
                   className="h-full bg-cyan-600 transition-all duration-300"
-                  style={{ width: `${4 * (questionNumber + 1)}%` }}
+                  style={{width: `${4 * (questionNumber + 1)}%`}}
                 ></div>
               </div>
             </div>
