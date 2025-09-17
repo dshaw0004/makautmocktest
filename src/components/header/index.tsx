@@ -29,7 +29,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-[#ff5500] to-[#ff9944] rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-orange-dark to-orange rounded-lg flex items-center justify-center">
                   <i className="fas fa-brain text-white text-lg">AEP</i>
                 </div>
                 <span className="ml-3 text-xl font-bold text-gray-800">
@@ -48,7 +48,7 @@ export default function Header() {
                     {page.name}
                   </a>
                 ))}
-                <button className="bg-[#ff9944] hover:bg-[#ff7722] text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
+                <button className="bg-orange hover:bg-orange-light text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
                   <Link to={"/home"}>Sign In</Link>
                 </button>
               </div>
