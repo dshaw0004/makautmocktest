@@ -47,4 +47,4 @@ The source code is located in the `src` directory and is organized as follows:
 
 ## UI Design
 
-The UI design files for this project were created using [Stitch by Google](https://stitch.withgoogle.com/projects/5993827729178666057?pli=1) and are located in the `/ui-design` directory.
+`Shadcn UI` is being used for creating UI component also custom components are being built.
