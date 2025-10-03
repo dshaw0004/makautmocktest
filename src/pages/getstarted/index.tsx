@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import {ArrowRight, BarChart3, Bot, Check, ClipboardList, PlayCircle} from "lucide-react";
+import Header from "@/components/header";
 
 export default function LandingPage() {
   return (
@@ -7,6 +8,7 @@ export default function LandingPage() {
 
       {/* The existing header is in a separate component, so we don't need to touch this part. */}
       {/* The global Header component will be used instead */}
+      <Header />
 
       <section className="relative overflow-hidden pt-24 lg:pt-32">
         <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-gradient-to-b from-cyan-50 to-transparent dark:from-cyan-950/50"></div>
