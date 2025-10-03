@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {ArrowRight, BarChart3, Bot, Check, ClipboardList, LogIn, PlayCircle} from "lucide-react";
+import {ArrowRight, BarChart3, Bot, Check, ClipboardList, PlayCircle} from "lucide-react";
 
 export default function LandingPage() {
   return (
