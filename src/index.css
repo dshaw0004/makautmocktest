@@ -98,6 +98,27 @@ body {
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --purple-light: #667eea;
+    --purple-dark: #764ba2;
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-20: rgba(255, 255, 255, 0.2);
+    --black-10: rgba(0, 0, 0, 0.1);
+    --google-blue: #4285F4;
+    --google-green: #34A853;
+    --google-yellow: #FBBC05;
+    --google-red: #EA4335;
+    --success: #059669;
+    --danger: #f43f5e;
+    --orange-dark: #ff5500;
+    --orange: #ff9944;
+    --orange-light: #ff7722;
+    --white-50: rgba(255, 255, 255, .5);
+    --white: #ffffff;
+    --blue-dark: #275EFE;
+    --blue: #5C86FF;
+    --blue-light: #EEF0FD;
+    --grey: #D3D4EC;
+    --yellow: #FBC56C;
 }
 
 @theme inline {

@@ -9,19 +9,13 @@ div.loader-container {
 }
 
 div.loader-container h1 {
-    color: #275EFE;
+    color: var(--blue-dark);
     font-weight: 900;
     font-family: monospace;
     font-size: 1.5rem;
 }
 
 div.loader-container .typewriter {
-    --blue: #5C86FF;
-    --blue-dark: #275EFE;
-    --key: #fff;
-    --paper: #EEF0FD;
-    --text: #D3D4EC;
-    --tool: #FBC56C;
     --duration: 3s;
     position: relative;
     -webkit-animation: bounce05 var(--duration) linear infinite;
@@ -44,7 +38,7 @@ div.loader-container .typewriter .slide:after,
 div.loader-container .typewriter .slide i:before {
     content: "";
     position: absolute;
-    background: var(--tool);
+    background: var(--yellow);
 }
 
 div.loader-container .typewriter .slide:before {
@@ -69,7 +63,7 @@ div.loader-container .typewriter .slide i {
     width: 6px;
     height: 4px;
     top: 4px;
-    background: var(--tool);
+    background: var(--yellow);
 }
 
 div.loader-container .typewriter .slide i:before {
@@ -87,7 +81,7 @@ div.loader-container .typewriter .paper {
     width: 40px;
     height: 46px;
     border-radius: 5px;
-    background: var(--paper);
+    background: var(--blue-light);
     transform: translateY(46px);
     -webkit-animation: paper05 var(--duration) linear infinite;
     animation: paper05 var(--duration) linear infinite;
@@ -102,8 +96,8 @@ div.loader-container .typewriter .paper:before {
     border-radius: 2px;
     height: 4px;
     transform: scaleY(0.8);
-    background: var(--text);
-    box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);
+    background: var(--grey);
+    box-shadow: 0 12px 0 var(--grey), 0 24px 0 var(--grey), 0 36px 0 var(--grey);
 }
 
 div.loader-container .typewriter .keyboard {
@@ -137,7 +131,7 @@ div.loader-container .typewriter .keyboard:after {
     width: 11px;
     height: 4px;
     border-radius: 2px;
-    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+    box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     -webkit-animation: keyboard05 var(--duration) linear infinite;
     animation: keyboard05 var(--duration) linear infinite;
 }
@@ -232,42 +226,42 @@ div.loader-container .typewriter .keyboard:after {
     66%,
     75%,
     84% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     9% {
-        box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 2px 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     18% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 2px 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     27% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 12px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     36% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key), 60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 12px 0 var(--white), 60px 12px 0 var(--white), 68px 12px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     45% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 2px 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     54% {
-        box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 2px 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     63% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 12px 0 var(--white);
     }
 
     72% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 2px 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 10px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 
     81% {
-        box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+        box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 22px 10px 0 var(--white), 37px 12px 0 var(--white), 52px 10px 0 var(--white), 60px 10px 0 var(--white), 68px 10px 0 var(--white), 83px 10px 0 var(--white);
     }
 }
