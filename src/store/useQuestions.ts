@@ -3,7 +3,7 @@ import type { QuestionAPIResponse } from "@/types/question";
 // import { sampleQuestionPaper } from "@/pages/mockTest/sample";
 
 type UseQuestionsType = {
-  questions: QuestionAPIResponse | {};
+  questions: QuestionAPIResponse | object;
   setQuestions: (newQuestions: QuestionAPIResponse) => void;
   removeQuestions: () => void;
 };

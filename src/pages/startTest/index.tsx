@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowLeft, PlayCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSubjects } from "@/store/useSubject";
 
 interface SubjectWithCode {
   subject: string;
@@ -12,16 +13,24 @@ interface SubjectWithCode {
 
 export default function StartTest() {
   const navigate = useNavigate();
+  const { clearCurrentSubject, setCurrentSubject, setSubjects, subjects } =
+    useSubjects();
+
   const [selectedSubject, setSelectedSubject] = useState<SubjectWithCode>({
     subcode: "",
     subject: "",
   });
-  const [subjects, setSubjects] = useState<SubjectWithCode[]>([]);
+  // const [subjects, setSubjects] = useState<SubjectWithCode[]>([]);
+
   const startTest = () => {
     if (selectedSubject.subcode === "" || selectedSubject.subject === "")
       throw Error("Please select a subject");
 
     if (selectedSubject) {
+      setCurrentSubject({
+        subcode: selectedSubject.subcode,
+        subject: selectedSubject.subject,
+      });
       navigate({
         pathname: "/mocktest",
         search:
@@ -42,7 +51,11 @@ export default function StartTest() {
     const name = button.dataset.name;
     if (code == undefined || name == undefined)
       throw Error("Something Went Wrong, try to select a subject again");
-    setSelectedSubject({ subject: name, subcode: code });
+    if (code == selectedSubject.subcode && name == selectedSubject.subject) {
+      setSelectedSubject({ subject: "", subcode: "" });
+    } else {
+      setSelectedSubject({ subject: name, subcode: code });
+    }
   }
 
   async function fetchAllSubjects() {
@@ -54,10 +67,15 @@ export default function StartTest() {
   }
   useEffect(() => {
     (async function () {
+      clearCurrentSubject();
+      if (subjects.length) {
+        console.log("not fetching the api");
+        return;
+      }
       const response = await fetchAllSubjects();
       setSubjects(response);
     })();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="antialiased selection:bg-cyan-200/60 text-slate-900 bg-white">
@@ -99,10 +117,18 @@ export default function StartTest() {
                   key={subject.subcode}
                   data-code={subject.subcode}
                   data-name={subject.subject}
-                  className="subject-card group relative flex flex-col rounded-xl border border-slate-200 bg-white/80 hover:border-cyan-400 transition duration-150 p-6 text-left focus:outline-none"
+                  className={`
+                  subject-card group relative
+                  flex flex-col text-left focus:outline-none
+                  rounded-2xl border
+                  bg-white/80 hover:border-cyan-400
+                  transition duration-150 p-6
+                  ${selectedSubject.subcode === subject.subcode ? "border-cyan-500  shadow-md" : "border-slate-200"}
+                  `}
                   onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
                     handleSubjectSelect(e)
                   }
+                  type="button"
                 >
                   <h2 className="text-lg font-semibold tracking-tight">
                     {subject.subject}
@@ -110,7 +136,6 @@ export default function StartTest() {
                   <p className="mt-2 text-slate-600 text-sm leading-snug">
                     {subject.subcode.toUpperCase()}
                   </p>
-                  <span className="absolute inset-0 rounded-xl ring-2 ring-cyan-500 opacity-0 pointer-events-none transition"></span>
                 </button>
               ))
             : Array(6)
@@ -118,7 +143,7 @@ export default function StartTest() {
                 .map((_, index) => (
                   <Skeleton
                     key={index}
-                    className="flex flex-col space-y-2 rounded-xl border border-teal-200 bg-white/80 p-6 text-left focus:outline-none"
+                    className="flex flex-col space-y-2 rounded-lg border border-teal-200 bg-white/80 p-6 text-left focus:outline-none"
                   >
                     <Skeleton className="w-4/5 h-4 bg-teal-200"></Skeleton>
                     <Skeleton className="w-2/5 h-3 bg-teal-100"></Skeleton>
@@ -129,7 +154,7 @@ export default function StartTest() {
         <section data-animate="" className="text-center">
           <Button
             id="startBtn"
-            className="inline-flex gap-2 disabled:opacity-40 disabled:cursor-not-allowed transition-colors hover:bg-cyan-700 focus:outline-none font-medium text-white bg-cyan-600 rounded-lg mt-8 pt-3 pr-6 pb-3 pl-6 items-center justify-center"
+            className="inline-flex gap-2 disabled:opacity-40 disabled:cursor-not-allowed transition-colors hover:bg-cyan-700 focus:outline-none font-medium text-white bg-cyan-600 rounded-lg mt-8 py-4 px-8 items-center justify-center"
             onClick={startTest}
             disabled={selectedSubject.subject === ""}
           >
@@ -146,37 +171,3 @@ export default function StartTest() {
     </div>
   );
 }
-
-// <script>
-//   const cards = document.querySelectorAll('.subject-card');
-//   const startBtn = document.getElementById('startBtn');
-//   const hint = document.getElementById('selectionHint');
-//   let selectedCard = null;
-
-//   cards.forEach(card => {
-//     card.addEventListener('click', () => {
-//       // Deselect previous
-//       if (selectedCard && selectedCard !== card) {
-//         selectedCard.querySelector('span').style.opacity = 0;
-//         selectedCard.classList.remove('border-cyan-500');
-//       }
-//       // Toggle current
-//       const ring = card.querySelector('span');
-//       const isSelected = ring.style.opacity == 1;
-//       ring.style.opacity = isSelected ? 0 : 1;
-//       card.classList.toggle('border-cyan-500', !isSelected);
-
-//       selectedCard = !isSelected ? card : null;
-
-//       // Update button + hint
-//       if (selectedCard) {
-//         startBtn.disabled = false;
-//         hint.textContent = `Selected: ${selectedCard.dataset.name}`;
-//       } else {
-//         startBtn.disabled = true;
-//         hint.textContent = 'No subject selected.';
-//       }
-//     });
-//   });
-
-// </script>

@@ -1,11 +1,11 @@
 .gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple-dark) 100%);
 }
 
 .glass-effect {
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--white-10);
+  border: 1px solid var(--white-20);
 }
 
 .hover-float {
@@ -14,7 +14,7 @@
 
 .hover-float:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px var(--black-10);
 }
 
 .animate-fade-in-up {
@@ -47,7 +47,7 @@
   content: '';
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--white-10);
   animation: float 6s ease-in-out infinite;
 }
 

@@ -1,6 +1,6 @@
 import { CheckCircle, Printer, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import useSubjectStore from "@/store/useSubject";
+import { useSubjects } from "@/store/useSubject";
 import useRAnswers from "@/store/useRAnswers";
 import useQuestions from "@/store/useQuestions";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Result() {
   const navigate = useNavigate();
-  const subject = useSubjectStore((state) => state.subject);
+  const { currentSubject } = useSubjects();
   const userAnswers = useRAnswers((state) => state.answers);
   const questions = useQuestions((state) => state.questions);
 
@@ -62,7 +62,7 @@ export default function Result() {
             Your Performance
           </h1>
           <h2 className="text-lg font-medium text-slate-600">
-            Subject: {subject}
+            Subject: {currentSubject.subject}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10 items-center">
@@ -74,7 +74,7 @@ export default function Result() {
                     datasets: [
                       {
                         data: [score, 25 - score],
-                        backgroundColor: ["#059669", "#f43f5e"],
+                        backgroundColor: ["var(--success)", "var(--danger)"],
                         borderWidth: 0,
                       },
                     ],
@@ -116,13 +116,13 @@ export default function Result() {
 
               <div className="flex gap-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-emerald-500"></span>
+                  <span className="h-3 w-3 rounded-full bg-success"></span>
                   <span className="text-sm font-medium text-slate-600">
                     Correct
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-rose-500"></span>
+                  <span className="h-3 w-3 rounded-full bg-danger"></span>
                   <span className="text-sm font-medium text-slate-600">
                     Incorrect
                   </span>
@@ -156,7 +156,7 @@ export default function Result() {
                   <p className="text-sm">
                     <span className="font-medium">Your answer:</span>
                     <span
-                      className={`font-medium ${userAnswers[`question-${index}`] == q.answer ? "text-emerald-600" : "text-rose-600"} `}
+                      className={`font-medium ${userAnswers[`question-${index}`] == q.answer ? "text-success" : "text-danger"} `}
                     >
                       {userAnswers[`question-${index}`]}
                     </span>
@@ -164,7 +164,7 @@ export default function Result() {
 
                   <p className="text-sm text-slate-600">{q.description}</p>
 
-                  <div className="self-start inline-flex items-center gap-1 rounded-full px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium">
+                  <div className="self-start inline-flex items-center gap-1 rounded-full px-2.5 py-1 bg-success/10 text-success text-xs font-medium">
                     <CheckCircle className="h-4 w-4 stroke-[1.5]" />
                     {q.answer}
                   </div>
