@@ -25,4 +25,4 @@ so initially it only contains the questions from 2nd semester and only those sub
 
 ## Version
 
-v0.0.5-Dev
+v0.0.6-Dev
