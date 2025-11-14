@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77fed0f6-f2dc-47c9-b1e9-ff4da35f3636/deploy-status)](https://app.netlify.com/sites/makautmocktest/deploys)
 
-![Visit Now](https://img.shields.io/badge/Visit_Now-123456?style=for-the-badge)
+[![Visit Now](https://img.shields.io/badge/Visit_Now-123456?style=for-the-badge)](https://makautmocktest.netlify.app)
 
 
 Since I am a MCA(Master of Computer Application) student under MAKAUT ( Maulana Abul Kalam Azad University of Technology),
@@ -25,4 +25,4 @@ so initially it only contains the questions from 2nd semester and only those sub
 
 ## Version
 
-v0.0.5-Dev
+v0.0.6-Dev

@@ -164,5 +164,5 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-  // navigationMenuTriggerStyle, // uncomment this if needed
+  navigationMenuTriggerStyle,
 };
