@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, PlayCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {Button} from "@/components/ui/button";
+import {Skeleton} from "@/components/ui/skeleton";
+import {ArrowLeft, PlayCircle} from "lucide-react";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import { useSubjects } from "@/store/useSubject";
+import {useSubjects} from "@/store/useSubject";
 
 interface SubjectWithCode {
   subject: string;
@@ -13,7 +13,7 @@ interface SubjectWithCode {
 
 export default function StartTest() {
   const navigate = useNavigate();
-  const { clearCurrentSubject, setCurrentSubject, setSubjects, subjects } =
+  const {clearCurrentSubject, setCurrentSubject, setSubjects, subjects} =
     useSubjects();
 
   const [selectedSubject, setSelectedSubject] = useState<SubjectWithCode>({
@@ -52,15 +52,16 @@ export default function StartTest() {
     if (code == undefined || name == undefined)
       throw Error("Something Went Wrong, try to select a subject again");
     if (code == selectedSubject.subcode && name == selectedSubject.subject) {
-      setSelectedSubject({ subject: "", subcode: "" });
+      setSelectedSubject({subject: "", subcode: ""});
     } else {
-      setSelectedSubject({ subject: name, subcode: code });
+      setSelectedSubject({subject: name, subcode: code});
     }
   }
 
   async function fetchAllSubjects() {
+    // "https://dapi-0rv5.onrender.com/v1/aiexam/syllabus/subject-list",
     const res = await axios.get(
-      "https://dapi-0rv5.onrender.com/v1/aiexam/syllabus/subject-list",
+      "http://localhost:3000/api/aiexam/syllabus/subject-list",
     );
     const data = res.data as SubjectWithCode[];
     return data;
@@ -68,6 +69,7 @@ export default function StartTest() {
   useEffect(() => {
     (async function () {
       clearCurrentSubject();
+      console.log(subjects)
       if (subjects.length) {
         console.log("not fetching the api");
         return;
@@ -111,13 +113,13 @@ export default function StartTest() {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           data-animate=""
         >
-          {subjects.length > 0
+          {Array.isArray(subjects) && subjects.length > 0
             ? subjects.map((subject) => (
-                <button
-                  key={subject.subcode}
-                  data-code={subject.subcode}
-                  data-name={subject.subject}
-                  className={`
+              <button
+                key={subject.subcode}
+                data-code={subject.subcode}
+                data-name={subject.subject}
+                className={`
                   subject-card group relative
                   flex flex-col text-left focus:outline-none
                   rounded-2xl border
@@ -125,30 +127,30 @@ export default function StartTest() {
                   transition duration-150 p-6
                   ${selectedSubject.subcode === subject.subcode ? "border-cyan-500  shadow-md" : "border-slate-200"}
                   `}
-                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                    handleSubjectSelect(e)
-                  }
-                  type="button"
-                >
-                  <h2 className="text-lg font-semibold tracking-tight">
-                    {subject.subject}
-                  </h2>
-                  <p className="mt-2 text-slate-600 text-sm leading-snug">
-                    {subject.subcode.toUpperCase()}
-                  </p>
-                </button>
-              ))
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  handleSubjectSelect(e)
+                }
+                type="button"
+              >
+                <h2 className="text-lg font-semibold tracking-tight">
+                  {subject.subject}
+                </h2>
+                <p className="mt-2 text-slate-600 text-sm leading-snug">
+                  {subject.subcode.toUpperCase()}
+                </p>
+              </button>
+            ))
             : Array(6)
-                .fill(0)
-                .map((_, index) => (
-                  <Skeleton
-                    key={index}
-                    className="flex flex-col space-y-2 rounded-lg border border-teal-200 bg-white/80 p-6 text-left focus:outline-none"
-                  >
-                    <Skeleton className="w-4/5 h-4 bg-teal-200"></Skeleton>
-                    <Skeleton className="w-2/5 h-3 bg-teal-100"></Skeleton>
-                  </Skeleton>
-                ))}
+              .fill(0)
+              .map((_, index) => (
+                <Skeleton
+                  key={index}
+                  className="flex flex-col space-y-2 rounded-lg border border-teal-200 bg-white/80 p-6 text-left focus:outline-none"
+                >
+                  <Skeleton className="w-4/5 h-4 bg-teal-200"></Skeleton>
+                  <Skeleton className="w-2/5 h-3 bg-teal-100"></Skeleton>
+                </Skeleton>
+              ))}
         </section>
 
         <section data-animate="" className="text-center">

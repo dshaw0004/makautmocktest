@@ -59,9 +59,10 @@ export default function MockTest() {
       try {
         setLoading(true);
         // setSubjects(SubjectName);
+          // "https://dapi-0rv5.onrender.com/v1/aiexam/get-questions",
 
         const response = await axios.post(
-          "https://dapi-0rv5.onrender.com/v1/aiexam/get-questions",
+          "http://localhost:3000/api/aiexam/get-questions",
           {
             subject_code: SubjectCode,
             university: "makaut",
