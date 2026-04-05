@@ -1,5 +1,4 @@
-import { Link } from "react-router";
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeToggleButton } from "../theme-toggle-button";
 import { LogIn } from "lucide-react";
 
@@ -26,7 +25,10 @@ export default function Header() {
   ];
   return (
     <header className="sticky top-0 z-30 backdrop-blur bg-white/80 dark:bg-slate-900/80 border-b border-slate-100">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-16" data-animate="">
+      <nav
+        className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-16"
+        data-animate=""
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">

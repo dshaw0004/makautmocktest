@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -103,22 +102,22 @@ body {
     --white-10: rgba(255, 255, 255, 0.1);
     --white-20: rgba(255, 255, 255, 0.2);
     --black-10: rgba(0, 0, 0, 0.1);
-    --google-blue: #4285F4;
-    --google-green: #34A853;
-    --google-yellow: #FBBC05;
-    --google-red: #EA4335;
+    --google-blue: #4285f4;
+    --google-green: #34a853;
+    --google-yellow: #fbbc05;
+    --google-red: #ea4335;
     --success: #059669;
     --danger: #f43f5e;
     --orange-dark: #ff5500;
     --orange: #ff9944;
     --orange-light: #ff7722;
-    --white-50: rgba(255, 255, 255, .5);
+    --white-50: rgba(255, 255, 255, 0.5);
     --white: #ffffff;
-    --blue-dark: #275EFE;
-    --blue: #5C86FF;
-    --blue-light: #EEF0FD;
-    --grey: #D3D4EC;
-    --yellow: #FBC56C;
+    --blue-dark: #275efe;
+    --blue: #5c86ff;
+    --blue-light: #eef0fd;
+    --grey: #d3d4ec;
+    --yellow: #fbc56c;
 }
 
 @theme inline {

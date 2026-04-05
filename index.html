@@ -1,13 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Makaut Mock Test | MMT</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Makaut Mock Test | MMT</title>
+        <style>
+            #watermark {
+                bottom: 1rem;
+                right: 1rem;
+                border: 1px solid black;
+                padding: 0.5rem 1rem;
+                backdrop-filter: blur(25px);
+            }
+        </style>
+    </head>
+    <body class="relative">
+        <div id="root"></div>
+        <a
+            id="watermark"
+            class="fixed bg-gray-400/25 rounded-md"
+            href="https://github.com/dshaw0004"
+            target="_blank"
+        >
+            Made by Dipankar Shaw
+        </a>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
