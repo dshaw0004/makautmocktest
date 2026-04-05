@@ -35,12 +35,14 @@ export default function StartTest() {
         subject: selectedSubject.subject,
       });
       navigate({
-        pathname: "/mocktest",
+        pathname: "/previous-questions",
         search:
-          "?subjectCode=" +
+          "?subcode=" +
           selectedSubject.subcode +
           "&subjectName=" +
-          selectedSubject.subject,
+          selectedSubject.subject +
+          "&university=" +
+          selectedUniversity,
       });
     } else {
       alert("Please select a subject before proceeding.");
