@@ -12,6 +12,7 @@ function ProtectedRoute({ isAuthenticated }: { isAuthenticated: boolean }) {
 function App() {
   const MockTest = lazy(() => import("./pages/mockTest/mockTest"));
   const StartTest = lazy(() => import("./pages/startTest"));
+  const PreviousQuestions = lazy(() => import("./pages/previousQuestions"));
   const Result = lazy(() => import("./pages/result"));
   const SignUp = lazy(() => import("./pages/authentication/signup.tsx"));
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<GetStarted />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/mocktest" element={<MockTest />} />
+          <Route path="/previous-questions" element={<PreviousQuestions />} />
           <Route path="/result" element={<Result />} />
           <Route path="/start-test" element={<StartTest />} />
           <Route path="/dashboard" element={<div>Dashboard</div>} />

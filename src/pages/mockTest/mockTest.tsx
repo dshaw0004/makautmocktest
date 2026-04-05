@@ -14,6 +14,7 @@ import { AlertCircle, ChevronLeft, ChevronRight, Flag } from "lucide-react";
 // custom hooks
 import useQuestions from "@/store/useQuestions";
 import useRAnswers from "@/store/useRAnswers";
+import useTestType from "@/store/useTestType";
 
 // Type imports
 import type { QuestionAPIResponse } from "@/types/question";
@@ -54,29 +55,46 @@ export default function MockTest() {
     }
   };
 
+  const { isNewTest } = useTestType();
+
   useEffect(() => {
     (async function () {
       try {
         setLoading(true);
         // setSubjects(SubjectName);
 
-        const response = await axios.post(
-          "https://dapi-0rv5.onrender.com/v1/aiexam/get-questions",
-          {
-            subject_code: SubjectCode,
-            university: "makaut",
-            user_id: "",
-          },
-          {
-            headers: { "Content-Type": "application/json" },
-          },
-        );
-        if (response.status !== 200) {
-          throw new Error("Failed to fetch questions");
+        // Check if questions already exist in store and this is not a new test
+        const existingQuestions = questions as QuestionAPIResponse;
+        if (
+          !isNewTest &&
+          existingQuestions.question &&
+          existingQuestions.question.length > 0
+        ) {
+          // Questions are already loaded in the store
+          showNotification("Questions loaded from store.");
+          setLoading(false);
+          return;
         }
-        setQuestions(response.data as QuestionAPIResponse);
-        // setQuestions(sampleQuestionPaper);
-        showNotification("Hey! your questions are ready.");
+
+        // Generate new questions only if isNewTest is true
+        if (isNewTest) {
+          const response = await axios.post(
+            "https://dapi-0rv5.onrender.com/v1/aiexam/get-questions",
+            {
+              subject_code: SubjectCode,
+              university: "makaut",
+              user_id: "",
+            },
+            {
+              headers: { "Content-Type": "application/json" },
+            },
+          );
+          if (response.status !== 200) {
+            throw new Error("Failed to fetch questions");
+          }
+          setQuestions(response.data as QuestionAPIResponse);
+          showNotification("Hey! your questions are ready.");
+        }
       } catch (error) {
         setError(error as Error);
       } finally {
