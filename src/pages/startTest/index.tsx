@@ -20,6 +20,9 @@ export default function StartTest() {
     subcode: "",
     subject: "",
   });
+  const [selectedUniversity, setSelectedUniversity] = useState<
+    "nptel" | "makaut"
+  >("nptel");
   // const [subjects, setSubjects] = useState<SubjectWithCode[]>([]);
 
   const startTest = () => {
@@ -58,9 +61,9 @@ export default function StartTest() {
     }
   }
 
-  async function fetchAllSubjects() {
+  async function fetchAllSubjects(university: "nptel" | "makaut") {
     const res = await axios.get(
-      "https://dapi-0rv5.onrender.com/v1/aiexam/syllabus/subject-list",
+      `https://dapi-0rv5.onrender.com/v1/aiexam/syllabus/subject-list?university=${university}`,
     );
     const data = res.data as SubjectWithCode[];
     return data;
@@ -68,14 +71,11 @@ export default function StartTest() {
   useEffect(() => {
     (async function () {
       clearCurrentSubject();
-      if (subjects.length) {
-        console.log("not fetching the api");
-        return;
-      }
-      const response = await fetchAllSubjects();
+      setSelectedSubject({ subject: "", subcode: "" });
+      const response = await fetchAllSubjects(selectedUniversity);
       setSubjects(response);
     })();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [selectedUniversity]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="antialiased selection:bg-cyan-200/60 text-slate-900 bg-white">
@@ -102,9 +102,32 @@ export default function StartTest() {
             Select a subject
           </h1>
           <p className="text-slate-600 max-w-lg">
-            Choose the subject you’d like to be tested on. You can only start
+            Choose the subject you'd like to be tested on. You can only start
             the test once a subject is selected.
           </p>
+
+          <div className="flex gap-2 mt-6 border-b border-slate-200">
+            <button
+              onClick={() => setSelectedUniversity("nptel")}
+              className={`px-4 py-2 font-medium transition-colors ${
+                selectedUniversity === "nptel"
+                  ? "text-cyan-600 border-b-2 border-cyan-600"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              NPTEL
+            </button>
+            <button
+              onClick={() => setSelectedUniversity("makaut")}
+              className={`px-4 py-2 font-medium transition-colors ${
+                selectedUniversity === "makaut"
+                  ? "text-cyan-600 border-b-2 border-cyan-600"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              MAKAUT
+            </button>
+          </div>
         </section>
 
         <section
