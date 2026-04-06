@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react"
-import { toast } from "sonner"
+import { gooeyToast } from "@/components/ui/goey-toaster"
 
 type UseCopyToClipboardProps = {
   text: string
@@ -11,13 +11,13 @@ export function useCopyToClipboard({
   copyMessage = "Copied to clipboard!",
 }: UseCopyToClipboardProps) {
   const [isCopied, setIsCopied] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const handleCopy = useCallback(() => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        toast.success(copyMessage)
+        gooeyToast.success(copyMessage)
         setIsCopied(true)
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current)
@@ -28,7 +28,7 @@ export function useCopyToClipboard({
         }, 2000)
       })
       .catch(() => {
-        toast.error("Failed to copy to clipboard.")
+        gooeyToast.error("Failed to copy to clipboard.")
       })
   }, [text, copyMessage])
 
