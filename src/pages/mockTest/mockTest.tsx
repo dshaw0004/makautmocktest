@@ -11,6 +11,7 @@ import Markdown from "react-markdown";
 // for error page
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle, ChevronLeft, ChevronRight, Flag } from "lucide-react";
+import { gooeyToast } from "@/components/ui/goey-toaster";
 // custom hooks
 import useQuestions from "@/store/useQuestions";
 import useRAnswers from "@/store/useRAnswers";
@@ -42,17 +43,8 @@ export default function MockTest() {
   const [questionNumber, setQuestionNumber] = useState<number>(0);
 
   const showNotification = (message: string) => {
-    if ("Notification" in window) {
-      if (Notification.permission === "granted") {
-        new Notification("Makaut Mock Test", { body: message });
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            new Notification("Makaut Mock Test", { body: message });
-          }
-        });
-      }
-    }
+    gooeyToast.info(message, {preset: 'bouncy',
+  });
   };
 
   const { isNewTest } = useTestType();

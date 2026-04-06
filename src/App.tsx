@@ -3,6 +3,7 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import GetStarted from "@/pages/getstarted";
 import NotFoundPage from "./pages/notfound";
 import Loader2 from "./components/loader/loader2";
+import { GooeyToaster } from "@/components/ui/goey-toaster";
 import "./App.css";
 
 function ProtectedRoute({ isAuthenticated }: { isAuthenticated: boolean }) {
@@ -17,6 +18,12 @@ function App() {
   const SignUp = lazy(() => import("./pages/authentication/signup.tsx"));
   return (
     <>
+      <GooeyToaster
+        position="bottom-right"
+        closeButton="top-right"
+        showProgress
+        swipeToDismiss
+      />
       <Suspense
         fallback={
           <div className="size-full flex justify-center align-center">
