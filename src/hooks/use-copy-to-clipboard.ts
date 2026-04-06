@@ -17,7 +17,8 @@ export function useCopyToClipboard({
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        gooeyToast.success(copyMessage)
+        gooeyToast.success(copyMessage, {preset: 'bouncy',
+  })
         setIsCopied(true)
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current)
@@ -28,7 +29,8 @@ export function useCopyToClipboard({
         }, 2000)
       })
       .catch(() => {
-        gooeyToast.error("Failed to copy to clipboard.")
+        gooeyToast.error("Failed to copy to clipboard.", {preset: 'bouncy',
+  })
       })
   }, [text, copyMessage])
 
