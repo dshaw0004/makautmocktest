@@ -23,10 +23,20 @@ const withLoader = (element: ReactElement) => (
   </Suspense>
 );
 
+import { useLocation } from 'react-router';
+
+function DebugPath() {
+  const location = useLocation();
+  console.log('🔍 Router received pathname:', location.pathname);
+  return <p>{JSON.stringify(location)}</p>;
+}
+
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
+    element: <div><DebugPath /></div>,
   },
   {
     path: "/mocktest",
@@ -66,6 +76,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // Catch-all debug route (put LAST)
+  {
+    path: "*",
+    element: (
+      <div style={{ padding: 20, background: '#fee' }}>
+        <strong>🚨 No route matched!</strong><br />
+        Pathname: <code>{window.location.pathname}</code><br />
+        Expected: <code>/app/start-test</code> should match <code>start-test</code> route
+      </div>
+    ),
+  },
+
 ], {
     basename: "/app",
 });
