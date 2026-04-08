@@ -2,7 +2,7 @@
 import { Suspense, lazy, type ReactElement } from "react";
 import { createRoot } from 'react-dom/client'
 // import './index.css'
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Loader2 from "../components/loader/loader2";
 
@@ -44,28 +44,28 @@ const router = createBrowserRouter([
     path: "/start-test",
     element: withLoader(<StartTest />),
   },
-//   {
-//     path: "/app",
-//     element: <Outlet />,
-//     children: [
-//       {
-//         path: "mocktest",
-//         element: withLoader(<MockTest />),
-//       },
-//       {
-//         path: "previous-questions",
-//         element: withLoader(<PreviousQuestions />),
-//       },
-//       {
-//         path: "result",
-//         element: withLoader(<Result />),
-//       },
-//       {
-//         path: "start-test",
-//         element: withLoader(<StartTest />),
-//       },
-//     ],
-//   },
+  {
+    path: "/app",
+    element: <Outlet />,
+    children: [
+      {
+        path: "mocktest",
+        element: withLoader(<MockTest />),
+      },
+      {
+        path: "previous-questions",
+        element: withLoader(<PreviousQuestions />),
+      },
+      {
+        path: "result",
+        element: withLoader(<Result />),
+      },
+      {
+        path: "start-test",
+        element: withLoader(<StartTest />),
+      },
+    ],
+  },
 ], {
     basename: "/app",
 });
