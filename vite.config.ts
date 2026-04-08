@@ -5,21 +5,10 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/app',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build: {
-    rollupOptions: {
-      input: { landing: 'index.html', app: 'app.html' },
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-        },
-      },
-    },
-  }
 })
