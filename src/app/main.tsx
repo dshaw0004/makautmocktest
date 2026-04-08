@@ -31,8 +31,6 @@ function DebugPath() {
   return <p>{JSON.stringify(location)}</p>;
 }
 
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
