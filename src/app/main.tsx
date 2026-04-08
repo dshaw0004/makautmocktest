@@ -86,9 +86,7 @@ const router = createBrowserRouter([
     ),
   },
 
-], {
-    basename: "/app",
-});
+]);
 
 
 const root = document.getElementById("root");
