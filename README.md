@@ -1,8 +1,8 @@
-# Makaut Mock Test
+# Mock Test
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77fed0f6-f2dc-47c9-b1e9-ff4da35f3636/deploy-status)](https://app.netlify.com/sites/makautmocktest/deploys)
 
-[![Visit Now](https://img.shields.io/badge/Visit_Now-123456?style=for-the-badge)](https://makautmocktest.netlify.app)
+[![Visit Now](https://img.shields.io/badge/Visit_Now-123456?style=for-the-badge)](https://mocktest.dipankarshaw.qzz.io)
 
 
 Since I am a MCA(Master of Computer Application) student under MAKAUT ( Maulana Abul Kalam Azad University of Technology),
@@ -21,8 +21,10 @@ so initially it only contains the questions from 2nd semester and only those sub
 - https://uiverse.io/loaders, for typewriter animation
 - Google Gemini API for generating question sets.
 - [Stitch](https://stitch.withgoogle.com/projects/5993827729178666057?pli=1) by Google is used to generate the ui design which is saved in the `/ui-design` directory.
+- [Animated UI](https://animate-ui.com/docs/) for ui components
+- goey-toast for toasts
 
 
 ## Version
 
-v0.0.6-Dev
+v0.0.7-Dev
